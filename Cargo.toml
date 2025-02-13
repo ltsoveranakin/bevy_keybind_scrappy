@@ -3,8 +3,16 @@ name = "bevy_keybind_scrappy"
 version = "0.1.0"
 edition = "2024"
 
+[workspace]
+members = ["keybind_scrappy_proc_macro"]
+
 [dependencies]
 bevy = { version = "0.15.1", default-features = false }
+keybind_scrappy_proc_macro = {path = "keybind_scrappy_proc_macro"}
 
 [dev-dependencies]
-bevy = { version = "0.15.1" }
+bevy = { version = "0.15.1", default-features = false }
+
+[features]
+parse_macro = []
+
