@@ -1,4 +1,4 @@
-use crate::keybind_plugin::Action;
+use crate::action::Action;
 use bevy::ecs::system::SystemParam;
 use bevy::prelude::*;
 use std::marker::PhantomData;
