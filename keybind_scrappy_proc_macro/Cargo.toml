@@ -1,0 +1,15 @@
+[package]
+name = "keybind_scrappy_proc_macro"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+quote = "1.0.38"
+serde = "1.0.217"
+serde_json = "1.0.138"
+syn = "2.0.98"
+
+[lib]
+name = "keybind_scrappy_proc_macro"
+path = "src/lib.rs"
+proc-macro = true
