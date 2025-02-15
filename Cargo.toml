@@ -14,5 +14,4 @@ keybind_scrappy_proc_macro = { path = "keybind_scrappy_proc_macro" }
 bevy = { version = "0.15.1", default-features = false }
 
 [features]
-parse_macro = []
 
