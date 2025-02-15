@@ -12,7 +12,7 @@ const DEFAULT_JUMP_KEY_CODE: KeyCode = KeyCode::Space;
 
 define_action!(Jump, DEFAULT_JUMP_KEY_CODE);
 
-fn jump_action(jump_bind: KeyBinding<Jump>) {
+fn jump(jump_bind: KeyBinding<Jump>) {
     if jump_bind.just_pressed() {
         println!("JUMP!");
     }
@@ -47,7 +47,7 @@ parse_json_file!("./file.json");
 Now you can use the created actions `Jump` and `MoveUp`
 
 ```rust
-fn jump_action(jump_bind: KeyBinding<Jump>) {
+fn jump(jump_bind: KeyBinding<Jump>) {
     if jump_bind.just_pressed() {
         println!("JUMP!");
     }
