@@ -54,7 +54,7 @@ fn jump_action(jump_bind: KeyBinding<Jump>) {
 }
 
 fn move_up(move_up_bind: KeyBinding<MoveUp>) {
-    if move_up_bind.just_pressed() {
+    if move_up_bind.pressed() {
         println!("MOVING UP!");
     }
 }
