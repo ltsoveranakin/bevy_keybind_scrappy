@@ -1,4 +1,4 @@
-use crate::keybind_plugin::Action;
+use crate::action::Action;
 use bevy::ecs::system::SystemParam;
 use bevy::prelude::*;
 use std::marker::PhantomData;
@@ -14,7 +14,7 @@ impl RegisterKeyBinding for App {
     where
         A: Action,
     {
-        self.insert_resource(KeyBind {
+        self.register_type::<KeyBind<A>>().insert_resource(KeyBind {
             key_code: A::get_default_key_code(),
             _marker: PhantomData::<A>::default(),
         })
@@ -23,12 +23,13 @@ impl RegisterKeyBinding for App {
 
 /// The underlying KeyBind [`Resource`], which stores the keycode associated with the bind
 
-#[derive(Resource)]
+#[derive(Resource, Reflect)]
 pub(crate) struct KeyBind<A>
 where
-    A: Action,
+    A: Action + Reflect,
 {
     pub(crate) key_code: Option<KeyCode>,
+    #[reflect(ignore)]
     pub(crate) _marker: PhantomData<A>,
 }
 

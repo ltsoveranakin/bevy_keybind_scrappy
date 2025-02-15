@@ -12,7 +12,8 @@ macro_rules! define_action {
 #[macro_export]
 macro_rules! define_action_full {
     ($action_name: ident, $default_key_code: expr) => {
-        struct $action_name;
+        #[derive(Reflect)]
+        pub struct $action_name;
 
         impl Action for $action_name {
             fn get_default_key_code() -> Option<KeyCode> {
