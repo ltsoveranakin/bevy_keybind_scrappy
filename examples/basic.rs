@@ -20,7 +20,6 @@ fn move_up_action(move_up_bind: KeyBinding<MoveUp>) {
 }
 
 fn main() {
-    println!("RAN");
     let mut app = App::new();
 
     app.add_plugins(DefaultPlugins)
