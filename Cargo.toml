@@ -9,6 +9,7 @@ members = ["keybind_scrappy_proc_macro"]
 [dependencies]
 bevy = { version = "0.15.1", default-features = false }
 keybind_scrappy_proc_macro = { path = "keybind_scrappy_proc_macro" }
+serde = { version = "1.0.217"}
 
 [dev-dependencies]
 bevy = { version = "0.15.1", default-features = false }
