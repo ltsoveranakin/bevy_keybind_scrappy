@@ -43,6 +43,11 @@ where
     key: Res<'w, KeyBind<A>>,
 }
 
+#[derive(SystemParam)]
+pub struct ModifyBinding<'w, A> where A: Action {
+    key_bind: ResMut<'w, KeyBind<A>>
+}
+
 impl<'w, A> KeyBinding<'w, A>
 where
     A: Action,
@@ -63,5 +68,11 @@ where
         self.key
             .key_code
             .map_or(false, |code| self.input.just_released(code))
+    }
+}
+
+impl <'w, A> ModifyBinding<'w, A> where A: Action{
+    pub fn set_key(&mut self, key: Option<KeyCode>) {
+        self.key_bind.key_code = key;
     }
 }
