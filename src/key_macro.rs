@@ -12,10 +12,10 @@ macro_rules! define_action {
 #[macro_export]
 macro_rules! define_action_full {
     ($action_name: ident, $default_key_code: expr) => {
-        #[derive(Reflect)]
+        #[derive(bevy::prelude::Reflect)]
         pub struct $action_name;
 
-        impl Action for $action_name {
+        impl bevy_keybind_scrappy::prelude::Action for $action_name {
             fn get_default_key_code() -> Option<KeyCode> {
                 $default_key_code
             }
