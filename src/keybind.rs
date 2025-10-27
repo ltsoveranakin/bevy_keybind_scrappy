@@ -2,6 +2,7 @@ use crate::action::Action;
 use bevy::ecs::system::SystemParam;
 use bevy::prelude::*;
 use std::marker::PhantomData;
+#[cfg(feature = "serialize")]use serde::{Deserialize, Serialize};
 
 pub trait RegisterKeyBinding {
     fn register_key_binding<A>(&mut self) -> &mut Self
@@ -26,7 +27,7 @@ impl RegisterKeyBinding for App {
 #[derive(Resource, Reflect)]
 pub(crate) struct KeyBind<A>
 where
-    A: Action + Reflect,
+    A: Action,
 {
     pub(crate) key_code: Option<KeyCode>,
     #[reflect(ignore)]
@@ -40,6 +41,11 @@ where
 {
     input: Res<'w, ButtonInput<KeyCode>>,
     key: Res<'w, KeyBind<A>>,
+}
+
+#[derive(SystemParam)]
+pub struct ModifyBinding<'w, A> where A: Action {
+    key_bind: ResMut<'w, KeyBind<A>>
 }
 
 impl<'w, A> KeyBinding<'w, A>
@@ -62,5 +68,11 @@ where
         self.key
             .key_code
             .map_or(false, |code| self.input.just_released(code))
+    }
+}
+
+impl <'w, A> ModifyBinding<'w, A> where A: Action{
+    pub fn set_key(&mut self, key: Option<KeyCode>) {
+        self.key_bind.key_code = key;
     }
 }
