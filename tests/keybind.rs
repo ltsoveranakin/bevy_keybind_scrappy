@@ -1,6 +1,7 @@
 use bevy::input::InputPlugin;
-use bevy::prelude::*;
-use bevy_keybind_scrappy::prelude::*;
+use bevy::prelude::IntoSystemConfigs;
+use bevy::prelude::{App, ButtonInput, KeyCode, ResMut, Update};
+use bevy_keybind_scrappy::prelude::{define_action, KeyBinding, RegisterKeyBinding};
 
 const JUMP_KEY_CODE: KeyCode = KeyCode::Space;
 const MOVE_UP_KEY_CODE: KeyCode = KeyCode::ArrowUp;

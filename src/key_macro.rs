@@ -15,8 +15,8 @@ macro_rules! define_action_full {
         #[derive(bevy::prelude::Reflect)]
         pub struct $action_name;
 
-        impl bevy_keybind_scrappy::prelude::Action for $action_name {
-            fn get_default_key_code() -> Option<KeyCode> {
+        impl bevy_keybind_scrappy::action::Action for $action_name {
+            fn get_default_key_code() -> Option<bevy::prelude::KeyCode> {
                 $default_key_code
             }
 
