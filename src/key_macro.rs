@@ -1,11 +1,11 @@
 #[macro_export]
 macro_rules! define_action {
     ($action_name: ident, $default_key_code: expr) => {
-        define_action_full!($action_name, Some($default_key_code));
+        bevy_keybind_scrappy::prelude::define_action_full!($action_name, Some($default_key_code));
     };
 
     ($action_name: ident) => {
-        define_action_full!($action_name, None);
+        bevy_keybind_scrappy::prelude::define_action_full!($action_name, None);
     };
 }
 
