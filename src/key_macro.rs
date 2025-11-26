@@ -12,7 +12,7 @@ macro_rules! define_action {
 #[macro_export]
 macro_rules! define_action_full {
     ($action_name: ident, $default_key_code: expr) => {
-        #[derive(bevy::prelude::Reflect)]
+        #[derive(bevy::reflect::Reflect)]
         pub struct $action_name;
 
         impl bevy_keybind_scrappy::action::Action for $action_name {

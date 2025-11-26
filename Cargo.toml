@@ -7,12 +7,15 @@ edition = "2024"
 members = ["keybind_scrappy_proc_macro"]
 
 [dependencies]
-bevy = { version = "0.15.1", default-features = false }
+bevy_app = "0.17"
+bevy_ecs = "0.17"
+bevy_ecs_macros = "0.17"
+bevy_input = "0.17"
+bevy_reflect = "0.17"
 keybind_scrappy_proc_macro = { path = "keybind_scrappy_proc_macro" }
-serde = { version = "1.0.217"}
 
 [dev-dependencies]
-bevy = { version = "0.15.1", default-features = false }
+bevy = { version = "0.17.3", default-features = false }
 
 [features]
 
